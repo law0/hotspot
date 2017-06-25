@@ -74,6 +74,12 @@ mv $save_place/interfaces.save $eni
 rm $save_place/dnsmasq_hotspot.pid
 mv $save_place/hostapd.conf.save $hostapd_conf
 ```
+## Note:
+
+There is intentionnaly a "sleep 60" at the beginning of the script
+to be sure that everything is in place before the script actually start
+(even if in LSB header Required-Start is set as $all, this leave enough
+time to the user to login and, perhaps, activate wifi hardware)
 
 ## Tested on:
 

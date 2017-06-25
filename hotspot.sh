@@ -11,7 +11,7 @@
 
 [ $(id -u) -eq 0 ] || exit
 
-sleep 120
+sleep 60
 
 eni="/etc/network/interfaces"
 dnsmasq_conf="/etc/dnsmasq.conf"
