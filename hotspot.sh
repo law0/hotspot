@@ -118,7 +118,7 @@ EOD
 
 turning_off()
 {
-		[ -z "$(grep hotspot < $eni)" ] && echo "hotspot already off" && exit
+		[ -z "$(grep hotspot < $eni)" ] && echo "hotspot already off"
 		echo "moving everything back..."
 		echo 0 > /proc/sys/net/ipv4/ip_forward
 		ip addr flush dev wlan0
