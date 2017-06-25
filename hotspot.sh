@@ -1,6 +1,7 @@
+#!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          hotpost
-# Required-Start:
+# Required-Start:    $all
 # Required-Stop:
 # Default-Start:     5
 # Default-Stop:      0 1 2 3 4 6
@@ -8,9 +9,9 @@
 # Description:       Allow this computer to be a wifi hotspot.
 ### END INIT INFO
 
-#!/bin/bash
-
 [ $(id -u) -eq 0 ] || exit
+
+sleep 120
 
 eni="/etc/network/interfaces"
 dnsmasq_conf="/etc/dnsmasq.conf"
