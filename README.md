@@ -1,6 +1,8 @@
 ## Synopsis
 
-simple hotspot script allowing to make a wifi hotspot from the computer
+Simple hotspot script allowing to make a wifi hotspot from the computer.
+If you have an Ethernet/LAN connection on your computer that you wish to share
+via Wifi to other equipment (e.g mobile phone)
 
 ## Requirement
 
@@ -73,6 +75,6 @@ rm $save_place/dnsmasq_hotspot.pid
 mv $save_place/hostapd.conf.save $hostapd_conf
 ```
 
-##Tested on:
+## Tested on:
 
 Debian Jessie 8.8
