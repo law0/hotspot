@@ -136,6 +136,7 @@ turning_off()
 		mv $save_place/hostapd.conf.save $hostapd_conf
 		ifup wlan0
 		service network-manager restart
+		ip route del default via 192.168.1.1 dev wlan0 onlink
 		$echo2
 }
 
