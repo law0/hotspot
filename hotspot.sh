@@ -11,12 +11,11 @@
 
 [ $(id -u) -eq 0 ] || exit
 
-sleep 60
 
 eni="/etc/network/interfaces"
 dnsmasq_conf="/etc/dnsmasq.conf"
 hostapd_conf="/etc/hostapd/hostapd.conf"
-save_place="/home/user/bin"
+save_place="/tmp/.hotspot"
 echo1="echo configuring"
 echo2="echo ...Done"
 
@@ -25,6 +24,9 @@ echo2="echo ...Done"
 
 turning_on()
 {
+
+		sleep 1
+
 		[ -n "$(grep hotspot < $eni)" ] && echo "hotspot already on (forgot to turn it off?)" && exit
 
 		$echo1 "interface wlan0"
@@ -112,6 +114,7 @@ EOD
 		iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 		iptables -A FORWARD -i wlan0 -m conntrack --ctstate NEW -j ACCEPT
 		service network-manager start
+		ip route del default dev wlan0 #a wrong default route may be added for wlan0
 
 		$echo2
 }
