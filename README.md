@@ -48,7 +48,7 @@ When turning off the script reverse all it did by applying back these configs :
 #configure save place
 eni="/etc/network/interfaces"
 hostapd_conf="/etc/hostapd/hostapd.conf"
-save_place="/home/user/bin"
+save_place="/tmp/.hotspot"
 
 [...]
 
@@ -65,7 +65,7 @@ iptables-save -c -t nat > $save_place/nat.iptables-save
 [...]
 
 #restoring back when turning off
-kill -9 $(cat /home/law/bin/dnsmasq_hotspot.pid)
+kill -9 $(cat $save_place/dnsmasq_hotspot.pid)
 iptables-restore -c < $save_place/filter.iptables-save
 iptables-restore -c < $save_place/nat.iptables-save
 rm $save_place/filter.iptables-save
@@ -83,4 +83,5 @@ time to the user to login and, perhaps, activate wifi hardware)
 
 ## Tested on:
 
-Debian Jessie 8.8
+Debian Jessie 8.8  
+Debian Stretch
